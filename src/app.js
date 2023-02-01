@@ -33,7 +33,6 @@ app.get('/products/:idProduct', async (req, res) => {
     } else {
         res.send(`El producto con ID: ${idProduct} no existe`)
     }
-
 })
 
 app.listen(PORT, () => {
