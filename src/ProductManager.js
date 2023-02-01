@@ -1,8 +1,5 @@
 import { promises as fs } from 'fs'
 
-const dataPath = "./src/data.json"
-
-
 // Clases para Manager y Producto
 class ProductManager {
     constructor(path) {
@@ -31,7 +28,7 @@ class ProductManager {
     async getProducts() {
         const dataBase = await fs.readFile(this.path, 'utf-8');
         const aux = JSON.parse(dataBase);
-        console.log(aux);
+        return aux;
     }
 
 
@@ -42,7 +39,7 @@ class ProductManager {
         if (product) {
             return product;
         } else {
-            console.error("Error 3: Producto no encontrado");
+            return null;
         }
     }
 
@@ -96,9 +93,8 @@ class Product {
     }
 }
 
-// Creacion del Manager y los productos
 
-const manager1 = new ProductManager(dataPath);
+// Creacion de los productos
 
 const product1 = new Product("Mjölner", "Maza", 200, "Sin Imagen", "a0", 30);
 const product2 = new Product("Praxis", "Anillo", 300, "Sin Imagen", "a1", 30);
@@ -114,6 +110,7 @@ const product10 = new Product("El sacrificio de Oro", "Espada", 950, "Sin Imagen
 
 // Cargar productos
 
+/*
 const loadData = async () => {
     await fs.writeFile(dataPath, "[]") //Iniciar base de datos con array vacio (archivo de texto)
 
@@ -134,3 +131,6 @@ const loadData = async () => {
 }
 
 loadData();
+*/
+
+export default ProductManager;
