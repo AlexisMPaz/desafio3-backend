@@ -40,7 +40,7 @@ class ProductManager {
         const aux = JSON.parse(dataBase);
         const product = aux.find(prod => prod.id === idProduct);
         if (product) {
-            console.log(product);
+            return product;
         } else {
             console.error("Error 3: Producto no encontrado");
         }
